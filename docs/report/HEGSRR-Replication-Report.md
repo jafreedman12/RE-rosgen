@@ -13,24 +13,27 @@ Original study *by* Rosgen, D. L.
 and Replication by: Kasprak, A., N. Hough-Snee, T. Beechie, N. Bouwes, G. Brierley, R. Camp, K. Fryirs, H. Imaki, M. Jensen, G. O’Brien, D. Rosgen, and J. Wheaton. 2016. The Blurred Line between Form and Process: A Comparison of Stream Channel Classification Frameworks ed. J. A. Jones. *PLOS ONE* 11 (3):e0150293. https://dx.plos.org/10.1371/journal.pone.0150293.
 
 Replication Authors:
-Your Name, Zach Hilgendorf, Joseph Holler, and Peter Kedron.
+Jacob Freedman, Zach Hilgendorf, Joseph Holler, and Peter Kedron.
 
-Replication Materials Available at: [github repository name](github repository link)
+Replication Materials Available at: [Re-Rosgen](https://github.com/jafreedman12/RE-rosgen)
 
-Created: `DD Month YYYY`
-Revised: `DD Month YYYY`
+Created: `19 March 2021`
+Revised: `19 March 2021`
 
-## Abstract 
 
-Briefly describe the original analysis – type of study, research design, analytical approach, and results; motivation of the replication; and outline of the replication study
+## Abstract
+
+In this study, we are replicating Rosgen's (1994) seminal classification of river systems, an effort that was originally undertaken to make the understanding of rivers transferable across disciplines. By looking at the surrounding landscape and the composition of the river, Rosgen (1994) hypothesized that a river classification system could be created and replicated for use in multiple disciplines. While previous studies attempted to classify streams based on age (Davis 1899), slope (Schumm 1963), bedload (Schumm 1977), valley pattern (Thornbury 1969), and pattern of movement (Brice and Blodgett 1978), among with many others, each of these was not effective for classifying streams across a variety of landscapes. By combining elements from all of these previous classifications, Rosgen focused on sinuosity, entrenchment, and widths of flood-prone areas to construct a multi-level classification system that emphasized the hierarchies of "states" of a river. Building on this research, Kasprak et al. (2016) set out to examine the replicability and accuracy of the Rosgen classification system (along with other classification systems), using spatial analysis tools at a watershed scale. Looking at the Middle Fork of the John Day River watershed, Kasprak et al. (2016) used DEM data and field-collected river data
+
+In this analysis, we are working to replicate the Rosgen classification system as replicated by Kasprak et al. (2016), all while using open-source GIS resources. By testing this replicability, we
 
 ## Original Study Information
 
-Description: Present a short narrative that summarizes key information about the original study. Include information about all of the following 
-1.	Provide a written description of the study location and extent. Whenever possible, provide specific geographic coordinates bounding the study extent or a spatial reference file. 
-2.	Identify and describe the spatial support (spatial resolution, unit of analysis) of the original analysis was conducted
-3.	What type of sample/data did the original study use?
-4.	Are the data and code used in the original analysis available/used in this replication?
+While Rosgen (1994) provides a framework for the Rosgen Classification System at various levels (relevant here are Level I: general landscape form, and Level II: more specific, field-based measurements), the research by Kasprak et al. (2016) provides an opportunity for us to replicate an existing automation of a framework. One of the major challenges with river classification is the variability between classification systems and the need for data gathered in the field. While both our analysis and that by Kasprak et al. (2016) use information from the field about stream bed composition, the capacity to do a large portion of these analyses using aerial imagery and GIS reflects immense possibilities in the easier replication and comparison of river classification systems.
+
+For the purposes of this report, I will focus on the use of the Rosgen Classification System (RCS) by Kasprak et al. (2016), although they compared this analysis with the River Styles Framework, the Columbia Basin Natural Channel Classification, and a Statistical Classification. Kasprak et al. (2016) set out to classify rivers at the watershed scale, using the Middle Fork of the John Day River Watershed (MFJD) as a test location. With an immense amount of field data collected for this site because of salmon monitoring, it was possible to complete the RCS and the other classifications without needing to collect river samples on their own. Using 33 points of analysis from the CHaMP (Columbia Habitat Monitoring Program) dataset, Kasprak et al. (2016) used 10m and 0.1m DEMs 1m aerial imagery to determine the Level I classifications at each CHaMP point. Level II classifications of width-depth ration, sinuosity, entrenchment, and gradient were calculated from O.1m DEMs and the River Bathymetry Toolkit.
+
+The data from this original analysis can be found in our publically-available ["Re-Rosgen"] (https://github.com/jafreedman12/RE-rosgen)repository. [CHaMP shapefiles] (https://github.com/jafreedman12/RE-rosgen/tree/main/data/raw/public) and [DEM data for the John Day Watershed] (https://github.com/jafreedman12/RE-rosgen/tree/main/data/raw/private) can be found at the corresponding links.
 
 ## Analytical Plan
 
@@ -38,17 +41,22 @@ Describe all elements of the analytical plan of the original study that are rele
 
 ### Sampling Plan and Data Description
 
-Include a reference map of the stream reach point you will analyze.
+In our class of 18 students, we were each [randomly assigned](https://gis4dev.github.io/lessons/04b_rosgen_GRASS_R.html) a study site for this analysis. I was assigned Location 13, seen below in Figure 1.
+
+ Figure 1: Point of analysis (Location 13) in the CHaMP dataset in the MFJD watershed
+ ![Image of Locator Map, showing Point 13 (orange) in MFJD watershed](https://octodex.github.com/images/yaktocat.png)
+
+
 
 Describe the data used in the original study. If sampling was used, provide details about the sampling design and how it was implemented.
 1. Describe how sampled data relevant to the hypotheses being re-examined was collected by the original authors.
-   -	For human subjects research, include the population from which subjects were sampled, location of sampling, recruitment details, payments for participation, eligibility criteria (e.g. inclusion and exclusion rules), and sampling timeline. 
+   -	For human subjects research, include the population from which subjects were sampled, location of sampling, recruitment details, payments for participation, eligibility criteria (e.g. inclusion and exclusion rules), and sampling timeline.
    -	For research that did not involve human subjects, include information about sample collection, duration of data gathering efforts, source or location of samples
    -	For studies in which sample location is obfuscated, explain the motivation for the obfuscation and identify the type of geographic masking technique that was used.  
 2. Describe the spatial sampling design used during data collection
    -	Identify the design of the spatial sample (e.g., stratified random sample)
    -	Identify the size of the sample, and how many observations will be collected in different geographic strata or levels if using a stratified, clustered, or multilevel design.
-   -	If a termination rule was used, identify the relevant criteria, original authors’ motivation, and how the rule was implemented. 
+   -	If a termination rule was used, identify the relevant criteria, original authors’ motivation, and how the rule was implemented.
 3. Describe any secondary dataset(s), or sub-set(s) of those datasets, used in the original study.
    -	Explain how the data was acquired by the original authors including – source (with DOI if possible), data of access
    -	If selected datasets or sub-sets cover only portions of the overall study area or study period, clearly identify which datasets are associated with which locations and times.
@@ -65,9 +73,9 @@ Describe the variables used in the original study to address the research questi
 1. Identify any experimentally manipulated variables and include details about how these variables were manipulated during the original study.
 2. Identify any measured variables examined in the original study
    -	Identify both the response(s) and predictor variable(s) associated with each hypothesis
-   -	Describe any variable transformations (e.g., log-scaled, categorical) 
+   -	Describe any variable transformations (e.g., log-scaled, categorical)
    -	Describe any spatial aggregation/disaggregation that was applied to any variables
-3. Describe any adjustments made to the variables to account for 
+3. Describe any adjustments made to the variables to account for
    -	first-order spatial effects (sub-regional differences in means)
    -	second-order spatial effects (spatial dependencies)
    -	spatial anisotropies (directional trends)
@@ -84,24 +92,24 @@ Describe the exact analytical specification that was used to test each hypothesi
    - If a classifier was used, provide details about the selection of training data, validation data, and if any independent test data
    - If a spatial multi-level model was used, identify the spatial scale of each level, the variable included at each level, and the levels any spatial structures or cross-scale structure are estimated at.
 Inference Criteria, Results, and Robustness: For each separate hypothesis, provide a description of the results of the original study and the relevant inference criteria and robustness checks
-1. Describe the specific criteria (e.g., p-values, effect size, model fit) and thresholds that were used to make inferences. 
+1. Describe the specific criteria (e.g., p-values, effect size, model fit) and thresholds that were used to make inferences.
    -	Identify any adjustments made for multiple testing (e.g., Bonferroni, Sidak) and how they were implemented.
-2. Describe the result associated with each hypothesis. 
-   -	Identify the size and direction of the effect, measure of variance of the effect, statistical assessments 
-3. Describe any robustness checks that were completed to assess the strength and reliability of inferences for each hypothesis. Identify any spatial components varied during robustness checks. 
+2. Describe the result associated with each hypothesis.
+   -	Identify the size and direction of the effect, measure of variance of the effect, statistical assessments
+3. Describe any robustness checks that were completed to assess the strength and reliability of inferences for each hypothesis. Identify any spatial components varied during robustness checks.
 
 ## Materials and Procedure
 
-Describe how the replication study will be implemented and identify any materials and procedures used to complete the replication. 
-1.	For computational studies include information about the hardware and software environments of both the original study and the replication attempt. 
+Describe how the replication study will be implemented and identify any materials and procedures used to complete the replication.
+1.	For computational studies include information about the hardware and software environments of both the original study and the replication attempt.
 
-Protocol: Explain how the analysis of the replication will proceed and identify if the analysis plan will match the original study. For many replications this section may be quite short if the procedures used in the original analyses are followed closely. In those cases, this section can simply explain how key elements will be followed. 
+Protocol: Explain how the analysis of the replication will proceed and identify if the analysis plan will match the original study. For many replications this section may be quite short if the procedures used in the original analyses are followed closely. In those cases, this section can simply explain how key elements will be followed.
 
 Differences from the Original Study: Identify any ways in which the replication is planned to depart from the original study -- a) location, b) sampling, c) data, d) measures/variable construction, d) analytical techniques.
 1.	Provide the motivation for each change that is made to the original study.
 2.	State how the differences identified above may influence the expected size/direction of the effect of the original study
 3.	List any testable hypotheses associated with each change. If a hypothesis is directional, state the direction
-4.	Outline any initial analyses that were taken to assess whether the differences identified above will influence the outcome of the replication attempt. 
+4.	Outline any initial analyses that were taken to assess whether the differences identified above will influence the outcome of the replication attempt.
 
 Assessment Criteria: Identify the criteria that will define whether the replication attempt was successful (e.g., matched statistical significance, direction of effect, similar magnitude of effect)
 - Reproducible documentation of methods, where documentation includes:
@@ -109,7 +117,7 @@ Assessment Criteria: Identify the criteria that will define whether the replicat
 
 ## Replication Results
 
-For each hypothesis examined, present separately the results of the replication attempt. 
+For each hypothesis examined, present separately the results of the replication attempt.
 1.	Briefly describe how the replication protocol outlined above was implemented reporting key information (e.g., sample size).
 2.	State whether the original hypothesis was or was not supported by the replication
    - Provide key statistics produced by the replication.
@@ -130,13 +138,14 @@ Tables to Include:
 Table 1. Site Measurements
 | Variable | Value | Source |
 | :-: | :-: | :-: |
-| Bankfull Width | | |
-| Bankfull Depth | | |
-| Valley Width | | |
-| Valley Depth | | |
-| Stream/River Length | | |
-| Valley Length | | |
-| Median Channel Material Particle Diameter | | |
+| Bankfull Width (m) | 8.0755 |  [CHaMP_Data_MFJD](https://github.com/jafreedman12/RE-rosgen/tree/main/data/raw/public)|
+| Bankfull Depth Average (m) | 0.4031 | [DpthBf_Avg in  CHaMP_Data_MFJD](https://github.com/jafreedman12/RE-rosgen/tree/main/data/raw/public) |
+| Bankfull Depth Maximum (m) | 1.7449 | [DpthBf_Max in CHaMP_Data_MFJD](https://github.com/jafreedman12/RE-rosgen/tree/main/data/raw/public) |
+| Valley Width (m) | 325 | *last graph in rstudio code |
+| Valley Depth (m) | 3.4998 | *calculation of MaxBFx2|
+| Stream/River Length (m) | 306.66 | *calculation in grass |
+| Valley Length (m) | 230.17 | *calculation in grass |
+| Median Channel Material Particle Diameter (mm) | 70 | [SubD50 variable in CHaMP_Data_MFJD](https://github.com/jafreedman12/RE-rosgen/tree/main/data/raw/public) |
 
 Table 2. Rosgen Level I Classification
 | Criteria | Value |
@@ -162,7 +171,7 @@ Identify and describe any unplanned deviations from the original replication pro
 
 Provide a summary and interpretation of the key findings of the replication *vis-a-vis* the original study results. If the attempt was a failure, discuss possible causes of the failure. These may include:
 - Practical Causes – related to lack of data, code, details in the original analysis
-- Informative Causes – related to absence of effect, change in population, or location. 
+- Informative Causes – related to absence of effect, change in population, or location.
 
 Discuss an interpretation of your results.
 - Were the Level I and Level II results internally and logically consistent? That is, did all the parameters for the identified stream type conform to expectations outlined in Rosgen?
@@ -181,8 +190,8 @@ Include any referenced studies or materials in the [AAG Style of author-date ref
 
 ####  Report Template References & License
 
-This template was developed by Peter Kedron and Joseph Holler with funding support from HEGS-2049837. This template is an adaptation of the ReScience Article Template Developed by N.P Rougier, released under a GPL version 3 license and available here: https://github.com/ReScience/template. Copyright © Nicolas Rougier and coauthors. It also draws inspiration from the pre-registration protocol of the Open Science Framework and the replication studies of Camerer et al. (2016, 2018). See https://osf.io/pfdyw/ and https://osf.io/bzm54/ 
+This template was developed by Peter Kedron and Joseph Holler with funding support from HEGS-2049837. This template is an adaptation of the ReScience Article Template Developed by N.P Rougier, released under a GPL version 3 license and available here: https://github.com/ReScience/template. Copyright © Nicolas Rougier and coauthors. It also draws inspiration from the pre-registration protocol of the Open Science Framework and the replication studies of Camerer et al. (2016, 2018). See https://osf.io/pfdyw/ and https://osf.io/bzm54/
 
-Camerer, C. F., A. Dreber, E. Forsell, T.-H. Ho, J. Huber, M. Johannesson, M. Kirchler, J. Almenberg, A. Altmejd, T. Chan, E. Heikensten, F. Holzmeister, T. Imai, S. Isaksson, G. Nave, T. Pfeiffer, M. Razen, and H. Wu. 2016. Evaluating replicability of laboratory experiments in economics. Science 351 (6280):1433–1436. https://www.sciencemag.org/lookup/doi/10.1126/science.aaf0918. 
+Camerer, C. F., A. Dreber, E. Forsell, T.-H. Ho, J. Huber, M. Johannesson, M. Kirchler, J. Almenberg, A. Altmejd, T. Chan, E. Heikensten, F. Holzmeister, T. Imai, S. Isaksson, G. Nave, T. Pfeiffer, M. Razen, and H. Wu. 2016. Evaluating replicability of laboratory experiments in economics. Science 351 (6280):1433–1436. https://www.sciencemag.org/lookup/doi/10.1126/science.aaf0918.
 
 Camerer, C. F., A. Dreber, F. Holzmeister, T.-H. Ho, J. Huber, M. Johannesson, M. Kirchler, G. Nave, B. A. Nosek, T. Pfeiffer, A. Altmejd, N. Buttrick, T. Chan, Y. Chen, E. Forsell, A. Gampa, E. Heikensten, L. Hummer, T. Imai, S. Isaksson, D. Manfredi, J. Rose, E.-J. Wagenmakers, and H. Wu. 2018. Evaluating the replicability of social science experiments in Nature and Science between 2010 and 2015. Nature Human Behaviour 2 (9):637–644. http://www.nature.com/articles/s41562-018-0399-z.
