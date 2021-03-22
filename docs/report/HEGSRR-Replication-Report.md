@@ -31,7 +31,7 @@ In this analysis, we are working to replicate the Rosgen classification system a
 
 While Rosgen (1994) provides a framework for the Rosgen Classification System at various levels (relevant here are Level I: general landscape form, and Level II: more specific, field-based measurements), the research by Kasprak et al. (2016) provides an opportunity for us to replicate an existing automation of a framework. One of the major challenges with river classification is the variability between classification systems and the need for data gathered in the field. While both our analysis and that by Kasprak et al. (2016) use information from the field about stream bed composition, the capacity to do a large portion of these analyses using aerial imagery and GIS reflects immense possibilities in the easier replication and comparison of river classification systems.
 
-For the purposes of this report, I will focus on the use of the Rosgen Classification System (RCS) by Kasprak et al. (2016), although they compared this analysis with the River Styles Framework, the Columbia Basin Natural Channel Classification, and a Statistical Classification. Kasprak et al. (2016) set out to classify rivers at the watershed scale, using the Middle Fork of the John Day River Watershed (MFJD) as a test location. With an immense amount of field data collected for this site because of salmon monitoring, it was possible to complete the RCS and the other classifications without needing to collect river samples on their own. Using 33 points of analysis from the CHaMP (Columbia Habitat Monitoring Program) dataset, Kasprak et al. (2016) used 10m and 0.1m DEMs 1m aerial imagery to determine the Level I classifications at each CHaMP point. Level II classifications of width-depth ration, sinuosity, entrenchment, and gradient were calculated from O.1m DEMs and the River Bathymetry Toolkit.
+For the purposes of this report, I will focus on the use of the Rosgen Classification System (RCS) by Kasprak et al. (2016), although they compared this analysis with the River Styles Framework, the Columbia Basin Natural Channel Classification, and a Statistical Classification. Kasprak et al. (2016) set out to classify rivers at the watershed scale, using the Middle Fork of the John Day River Watershed (MFJD) as a test location. With an immense amount of field data collected for this site because of salmon monitoring, it was possible to complete the RCS and the other classifications without needing to collect river samples on their own. Using 33 points of analysis from the CHaMP (Columbia Habitat Monitoring Program) dataset, Kasprak et al. (2016) used 10m and 0.1m DEMs 1m aerial imagery to determine the Level I classifications at each CHaMP point. Classifications of width-depth ration, sinuosity, entrenchment, and gradient were calculated from O.1m DEMs and the River Bathymetry Toolkit.
 
 The data from this original analysis can be found in our publically-available ["Re-Rosgen"] (https://github.com/jafreedman12/RE-rosgen)repository. [CHaMP shapefiles] (https://github.com/jafreedman12/RE-rosgen/tree/main/data/raw/public) and [DEM data for the John Day Watershed] (https://github.com/jafreedman12/RE-rosgen/tree/main/data/raw/private) can be found at the corresponding links.
 
@@ -41,44 +41,31 @@ Describe all elements of the analytical plan of the original study that are rele
 
 ### Sampling Plan and Data Description
 
-In our class of 18 students, we were each [randomly assigned](https://gis4dev.github.io/lessons/04b_rosgen_GRASS_R.html) a study site for this analysis. I was assigned Location 13, seen below in Figure 1.
-
  Figure 1: Point of analysis (Location 13) in the CHaMP dataset in the MFJD watershed
- ![Image of Locator Map, showing Point 13 (orange) in MFJD watershed](https://octodex.github.com/images/yaktocat.png)
+ ![Image of Locator Map, showing Point 13 (orange) in MFJD watershed](https://github.com/jafreedman12/RE-rosgen/blob/main/results/maps/fig01_locatormap.png)
+
+The data collected for this analysis was performed primarily using the CHaMP dataset of river depth and quality throughout the John Day watershed, a dataset created in the monitoring of salmon populations. 33 sites were randomly selected by Kasprak et al. (2016), and in our class of 18 students, we were each [randomly assigned](https://gis4dev.github.io/lessons/04b_rosgen_GRASS_R.html) a study site for this analysis. I was assigned Location 13 (Figure 1). 10m DEM data is publicly available across the United States through the [USGS 3DEP program] (https://apps.nationalmap.gov/downloader/#/). We received this [DEM pre-processed](https://github.com/jafreedman12/RE-rosgen/tree/main/data/raw/private) for the extent of the John Day watershed at a 1m pixel resolution, though the authors state they used 10m and 0.1m pixels for their DEM analyses.
+
+Kasprak et al. (2016) performed this analysis on 33 sites in the MFJD watershed, using the average of 100+ , 1m-spaced cross-sections at each site to help with the classification of each river in the RGS framework. They used a generalized random tessellation stratified sampling method to select the 33 sites (sampled in 2012 and 2013) that were eventually used in this analysis. While the authors do not make clear the origins for their DEM data, it is fairly easy to find high-quality DEM and aerial imagery in the United States through the [USGS 3DEP program](https://apps.nationalmap.gov/downloader/#/). The CHaMP data for 2012 and 2013 was gathered in collaboration with the [Columbia Habitat Monitoring Project](https://www.champmonitoring.org/Watershed/Details/6#tab-overview~#people), and the authors make clear that this research is a project for the CHaMP Monitoring Project.
 
 
-
-Describe the data used in the original study. If sampling was used, provide details about the sampling design and how it was implemented.
-1. Describe how sampled data relevant to the hypotheses being re-examined was collected by the original authors.
-   -	For human subjects research, include the population from which subjects were sampled, location of sampling, recruitment details, payments for participation, eligibility criteria (e.g. inclusion and exclusion rules), and sampling timeline.
-   -	For research that did not involve human subjects, include information about sample collection, duration of data gathering efforts, source or location of samples
-   -	For studies in which sample location is obfuscated, explain the motivation for the obfuscation and identify the type of geographic masking technique that was used.  
-2. Describe the spatial sampling design used during data collection
-   -	Identify the design of the spatial sample (e.g., stratified random sample)
-   -	Identify the size of the sample, and how many observations will be collected in different geographic strata or levels if using a stratified, clustered, or multilevel design.
-   -	If a termination rule was used, identify the relevant criteria, original authors’ motivation, and how the rule was implemented.
-3. Describe any secondary dataset(s), or sub-set(s) of those datasets, used in the original study.
-   -	Explain how the data was acquired by the original authors including – source (with DOI if possible), data of access
-   -	If selected datasets or sub-sets cover only portions of the overall study area or study period, clearly identify which datasets are associated with which locations and times.
-   -	Explain how the data was acquired by the original authors including – source, data of access
 4. Describe if/how the original study excluded or adjusted the initial dataset
    -	Identify any data that was excluded from the original analysis report –reason for exclusion, exclusion criteria, sample size before and after exclusion, location of excluded data (e.g., is exclusion likely to reduce/eliminate coverage in a particular sub-region)
    -	Explain how the original authors addressed missing data and details about any interpolation procedures used by the authors.
    -	Describe any sample weighting that was used in the original study. Separately identify any spatial component used in the weighting scheme.
 
-### Variables
+### Variables -- Describe the variables used in the original study to address the research questions and hypotheses that are the focus of the replication.
 
-Describe the variables used in the original study to address the research questions and hypotheses that are the focus of the replication.
+The rivers classifications in this study were determined from stream characteristics that come from the surrounding landscape relief, landform, and valley morphology. By calculating the slope (change in elevation/change in distance), sinuosity (channel length/valley length), width:depth ratio (bankfull width/bankfull depth), and entrenchment ratio (width of flood-prone area/width of bankfull river, where the width of the flood-prone area is determined at [twice the maximum bankfull depth](https://cfpub.epa.gov/watertrain/moduleFrame.cfm?parent_object_id=1259#:~:text=The%20entrenchment%20ratio%20is%20the,from%20the%20established%20bankfull%20stage.)) of the river, the authors of Kasprak et al. (2016) were able to classify each of the rivers at the 33 sampled points into the Rosgen System of River Classification. Bankfull is defined as the initial point of river flooding -- a significant detail for river classification, especially concerning the determination of floodplain extent.
 
-1. Identify any experimentally manipulated variables and include details about how these variables were manipulated during the original study.
-2. Identify any measured variables examined in the original study
-   -	Identify both the response(s) and predictor variable(s) associated with each hypothesis
-   -	Describe any variable transformations (e.g., log-scaled, categorical)
-   -	Describe any spatial aggregation/disaggregation that was applied to any variables
-3. Describe any adjustments made to the variables to account for
-   -	first-order spatial effects (sub-regional differences in means)
-   -	second-order spatial effects (spatial dependencies)
-   -	spatial anisotropies (directional trends)
+Table 00. Ratios used in Rosgen Classification System
+| Ratio type | Calculation |
+| :-: | :-: |
+| Entrenchment Ratio | width of flood-prone area/width of bankfull river, where the width of the flood-prone area is determined at twice the maximum bankfull depth |
+| Width / Depth Ratio | bankfull width/bankfull depth |
+| Sinuosity | channel length/valley length |
+
+
 
 ### Analytical Specification
 
