@@ -87,29 +87,23 @@ For each hypothesis examined, present separately the results of the replication 
    - Highlight any contradictory results with a brief explanation
 3.	State whether any hypothesis linked to a planned deviation from the original study was supported. Provide key statistics and related reasoning.
 
-Figures to Include:
 
+## Figures and Tables
 
-![Figure 2: ]()
+![Figure 2: Slope at location 13](https://github.com/jafreedman12/RE-rosgen/blob/main/results/maps/fig2_slope_loc13.png)
 
-![Figure 3: ]()
+![Figure 3: Shaded elevation at location 13](https://github.com/jafreedman12/RE-rosgen/blob/main/results/maps/fig3_shadedElev_loc13.png)
 
-![Figure 4: ]()
+![Figure 4: Composite stream centerline](https://github.com/jafreedman12/RE-rosgen/blob/main/results/maps/fig4_stream_centerline_loc13.png)
 
-![Figure 5: ]()
+![Figure 5: Composite valley centerline](https://github.com/jafreedman12/RE-rosgen/blob/main/results/maps/fig5_valley_centerline.png)
 
-![Figure 6: ]()
+![Figure 6: Longitudinal profile of river](https://github.com/jafreedman12/RE-rosgen/blob/main/results/maps/fig6_longprof_graph_elev_slope.png)
 
+![Figure 7: Cross-sectional river profile](https://github.com/jafreedman12/RE-rosgen/blob/main/results/maps/fig7_cross_sect_profile_graph.png)
 
-- map of the study site shaded elevation
-- map of the study site slope
-- Map of the study site stream/river centerlines and final mean centerline
-- Map of the study site valley centerlines and final mean centerline
-- Longitudinal profile graph with elevation and slope
-- Cross-sectional profile graph
-- annotated flow chart of RCS
+![Figure 8: Annotated flow chart of Rosgen Classification System](https://github.com/jafreedman12/RE-rosgen/blob/main/results/figures/Key_to_Rosgen_Classification.jpeg)
 
-Tables to Include:
 
 Table 2. Site Measurements
 | Variable | Value | Source |
