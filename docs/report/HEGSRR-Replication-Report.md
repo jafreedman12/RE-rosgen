@@ -33,32 +33,24 @@ While Rosgen (1994) provides a framework for the Rosgen Classification System at
 
 For the purposes of this report, I will focus on the use of the Rosgen Classification System (RCS) by Kasprak et al. (2016), although they compared this analysis with the River Styles Framework, the Columbia Basin Natural Channel Classification, and a Statistical Classification. Kasprak et al. (2016) set out to classify rivers at the watershed scale, using the Middle Fork of the John Day River Watershed (MFJD) as a test location. With an immense amount of field data collected for this site because of salmon monitoring, it was possible to complete the RCS and the other classifications without needing to collect river samples on their own. Using 33 points of analysis from the CHaMP (Columbia Habitat Monitoring Program) dataset, Kasprak et al. (2016) used 10m and 0.1m DEMs 1m aerial imagery to determine the Level I classifications at each CHaMP point. Classifications of width-depth ration, sinuosity, entrenchment, and gradient were calculated from O.1m DEMs and the River Bathymetry Toolkit.
 
-The data from this original analysis can be found in our publically-available ["Re-Rosgen"] (https://github.com/jafreedman12/RE-rosgen)repository. [CHaMP shapefiles] (https://github.com/jafreedman12/RE-rosgen/tree/main/data/raw/public) and [DEM data for the John Day Watershed] (https://github.com/jafreedman12/RE-rosgen/tree/main/data/raw/private) can be found at the corresponding links.
+The data from this original analysis can be found in our publicly-available ["Re-Rosgen"] (https://github.com/jafreedman12/RE-rosgen)repository. [CHaMP shapefiles] (https://github.com/jafreedman12/RE-rosgen/tree/main/data/raw/public) and [DEM data for the John Day Watershed] (https://github.com/jafreedman12/RE-rosgen/tree/main/data/raw/private) can be found at the corresponding links.
 
-## Analytical Plan
 
-Describe all elements of the analytical plan of the original study that are relevant to the research questions and hypotheses being re-examined by the replication. Include information for each of the following sub-sections as appropriate.
-
-### Sampling Plan and Data Description
+## Sampling Plan and Data Description
 
  Figure 1: Point of analysis (Location 13) in the CHaMP dataset in the MFJD watershed
  ![Image of Locator Map, showing Point 13 (orange) in MFJD watershed](https://github.com/jafreedman12/RE-rosgen/blob/main/results/maps/fig01_locatormap.png)
 
-The data collected for this analysis was performed primarily using the CHaMP dataset of river depth and quality throughout the John Day watershed, a dataset created in the monitoring of salmon populations. 33 sites were randomly selected by Kasprak et al. (2016), and in our class of 18 students, we were each [randomly assigned](https://gis4dev.github.io/lessons/04b_rosgen_GRASS_R.html) a study site for this analysis. I was assigned Location 13 (Figure 1). 10m DEM data is publicly available across the United States through the [USGS 3DEP program] (https://apps.nationalmap.gov/downloader/#/). We received this [DEM pre-processed](https://github.com/jafreedman12/RE-rosgen/tree/main/data/raw/private) for the extent of the John Day watershed at a 1m pixel resolution, though the authors state they used 10m and 0.1m pixels for their DEM analyses.
+The data collected for this analysis was performed primarily using the CHaMP dataset of river depth and quality throughout the John Day watershed, a dataset created in the monitoring of salmon populations. 33 sites were randomly selected by Kasprak et al. (2016), and in our class of 18 students, we were each [randomly assigned](https://gis4dev.github.io/lessons/04b_rosgen_GRASS_R.html) a study site for this analysis. I was assigned Location 13 (Figure 1). 10m DEM data is publicly available across the United States through the [USGS 3DEP program] (https://apps.nationalmap.gov/downloader/#/). We received this [DEM as pre-processed LiDAR](https://github.com/jafreedman12/RE-rosgen/tree/main/data/raw/private) for the extent of the John Day watershed at a 1m pixel resolution, though the authors state they used 10m and 0.1m pixels for their DEM analyses. This 0.1m DEM was likely derived from LiDAR point cloud data.
 
-Kasprak et al. (2016) performed this analysis on 33 sites in the MFJD watershed, using the average of 100+ , 1m-spaced cross-sections at each site to help with the classification of each river in the RGS framework. They used a generalized random tessellation stratified sampling method to select the 33 sites (sampled in 2012 and 2013) that were eventually used in this analysis. While the authors do not make clear the origins for their DEM data, it is fairly easy to find high-quality DEM and aerial imagery in the United States through the [USGS 3DEP program](https://apps.nationalmap.gov/downloader/#/). The CHaMP data for 2012 and 2013 was gathered in collaboration with the [Columbia Habitat Monitoring Project](https://www.champmonitoring.org/Watershed/Details/6#tab-overview~#people), and the authors make clear that this research is a project for the CHaMP Monitoring Project.
+Kasprak et al. (2016) performed this analysis on 33 sites in the MFJD watershed, using the average of 100+ , 1m-spaced cross-sections at each site to help with the classification of each river in the RGS framework. They used a generalized random tessellation stratified sampling method to select the 33 CHaMP sites (sampled in 2012 and 2013) that were eventually used in this analysis. While the authors do not make clear the origins for their DEM data, it is fairly easy to find high-quality DEM and aerial imagery in the United States through the [USGS 3DEP program](https://apps.nationalmap.gov/downloader/#/). The CHaMP data for 2012 and 2013 was gathered in collaboration with the [Columbia Habitat Monitoring Project](https://www.champmonitoring.org/Watershed/Details/6#tab-overview~#people), and the authors make clear that this research is a project for the CHaMP Monitoring Project.
 
-
-4. Describe if/how the original study excluded or adjusted the initial dataset
-   -	Identify any data that was excluded from the original analysis report –reason for exclusion, exclusion criteria, sample size before and after exclusion, location of excluded data (e.g., is exclusion likely to reduce/eliminate coverage in a particular sub-region)
-   -	Explain how the original authors addressed missing data and details about any interpolation procedures used by the authors.
-   -	Describe any sample weighting that was used in the original study. Separately identify any spatial component used in the weighting scheme.
 
 ### Variables -- Describe the variables used in the original study to address the research questions and hypotheses that are the focus of the replication.
 
-The rivers classifications in this study were determined from stream characteristics that come from the surrounding landscape relief, landform, and valley morphology. By calculating the slope (change in elevation/change in distance), sinuosity (channel length/valley length), width:depth ratio (bankfull width/bankfull depth), and entrenchment ratio (width of flood-prone area/width of bankfull river, where the width of the flood-prone area is determined at [twice the maximum bankfull depth](https://cfpub.epa.gov/watertrain/moduleFrame.cfm?parent_object_id=1259#:~:text=The%20entrenchment%20ratio%20is%20the,from%20the%20established%20bankfull%20stage.)) of the river, the authors of Kasprak et al. (2016) were able to classify each of the rivers at the 33 sampled points into the Rosgen System of River Classification. Bankfull is defined as the initial point of river flooding -- a significant detail for river classification, especially concerning the determination of floodplain extent.
+The river classifications in this study were determined from stream characteristics that come from the surrounding landscape relief, landform, and valley morphology. By calculating the slope (change in elevation/change in distance), sinuosity (channel length/valley length), width:depth ratio (bankfull width/bankfull depth), and entrenchment ratio (width of flood-prone area/width of bankfull river, where the width of the flood-prone area is determined at [twice the maximum bankfull depth](https://cfpub.epa.gov/watertrain/moduleFrame.cfm?parent_object_id=1259#:~:text=The%20entrenchment%20ratio%20is%20the,from%20the%20established%20bankfull%20stage.)) of the river, the authors of Kasprak et al. (2016) were able to classify each of the rivers at the 33 sampled points into the Rosgen System of River Classification. Bankfull is defined as the initial point of river flooding -- a significant detail for river classification, especially concerning the determination of floodplain extent.
 
-Table 00. Ratios used in Rosgen Classification System
+Table 01. Ratios used in Rosgen Classification System
 | Ratio type | Calculation |
 | :-: | :-: |
 | Entrenchment Ratio | width of flood-prone area/width of bankfull river, where the width of the flood-prone area is determined at twice the maximum bankfull depth |
@@ -66,41 +58,24 @@ Table 00. Ratios used in Rosgen Classification System
 | Sinuosity | channel length/valley length |
 
 
-
 ### Analytical Specification
 
-Describe the exact analytical specification that was used to test each hypothesis
-1. For computational studies include information about the hardware and software environments of both the original study
-2. Identify the coordinate system(s) and projection(s) used during the original analysis
-3. Specify if/how edge effects were addressed. Provide details regarding the extent of any buffer or guard areas used.
-4. Describe the type of model, the specification of that model, distributional assumptions of the model, and any post-hoc analyses used to test each hypothesis. Key aspects of some common geographical analyses include:
-   - If a spatial weighting scheme was used, provide a functional description of that scheme
-   - If a spatial model was used, provide detailed description of that model
-   - If a classifier was used, provide details about the selection of training data, validation data, and if any independent test data
-   - If a spatial multi-level model was used, identify the spatial scale of each level, the variable included at each level, and the levels any spatial structures or cross-scale structure are estimated at.
-Inference Criteria, Results, and Robustness: For each separate hypothesis, provide a description of the results of the original study and the relevant inference criteria and robustness checks
-1. Describe the specific criteria (e.g., p-values, effect size, model fit) and thresholds that were used to make inferences.
-   -	Identify any adjustments made for multiple testing (e.g., Bonferroni, Sidak) and how they were implemented.
-2. Describe the result associated with each hypothesis.
-   -	Identify the size and direction of the effect, measure of variance of the effect, statistical assessments
-3. Describe any robustness checks that were completed to assess the strength and reliability of inferences for each hypothesis. Identify any spatial components varied during robustness checks.
+With no guiding hypotheses in this study and a greater emphasis on testing research design, there is little to report in analytical specifications. Kasprak et al. (2016) place a larger emphasis on automating and comparing multiple river classification schemes and, for our purposes, understanding how this classification will work for the Rosgen Classification System.
 
 ## Materials and Procedure
 
-Describe how the replication study will be implemented and identify any materials and procedures used to complete the replication.
-1.	For computational studies include information about the hardware and software environments of both the original study and the replication attempt.
+This report is to assess if the watershed-scale classifications by Kasprak et al. (2016) can be  entirely replicated with open-source GIS and statistical software. Using GRASS, QGIS 3.16 LTR, RStudio, and Github as a data and procedure repository. It is presumed that the original replication study occurred using ArcGIS and other proprietary softwares, though this is not made clear in the paper. Both our study and Kasprak et al. (2016) use the CHaMP points for specific site classification, with Kasprak using points from 2012-2013 and ours ranging from 2011-2017. At my site (location 13) there were four sampled points from 2013-2015, and my random selection led to using one of the 2013 points for this study.
 
-Protocol: Explain how the analysis of the replication will proceed and identify if the analysis plan will match the original study. For many replications this section may be quite short if the procedures used in the original analyses are followed closely. In those cases, this section can simply explain how key elements will be followed.
+## Protocol
 
-Differences from the Original Study: Identify any ways in which the replication is planned to depart from the original study -- a) location, b) sampling, c) data, d) measures/variable construction, d) analytical techniques.
-1.	Provide the motivation for each change that is made to the original study.
-2.	State how the differences identified above may influence the expected size/direction of the effect of the original study
-3.	List any testable hypotheses associated with each change. If a hypothesis is directional, state the direction
-4.	Outline any initial analyses that were taken to assess whether the differences identified above will influence the outcome of the replication attempt.
+Both Kasprak et al. (2016) and our replication follow the Rosgen Classification System template for classifying the river to Level I and Level II specifications. While Kasprak used the [River Bathymetry Toolkit (RBT)](https://essa.com/explore-essa/tools/river-bathymetry-toolkit-rbt/), a set of river analysis tools designed to function with ArcGIS desktop, we did many of these same steps with manual digitization and terrain analysis in GRASS.
 
-Assessment Criteria: Identify the criteria that will define whether the replication attempt was successful (e.g., matched statistical significance, direction of effect, similar magnitude of effect)
-- Reproducible documentation of methods, where documentation includes:
-- Annotated flowchart of final parameter values (use last page of RSC_EPA_2005 PDF)
+For our replication, we began with a workspace in GRASS for doing our terrain processing. Working in the projection NAD 1983 UTM Zone 11 North, we loaded in the 1m LiDAR-derived DEM of the watershed and all relevant points from the CHaMP dataset. To create our study region, we built a buffer around our selected point of interest (e.g. location 13 (Fig. 1)), created a square analysis region around the buffer, and clipped the LiDAR-derived DEM to that analysis region. A hillshade and slope were applied to the elevation data, to be used in subsequent classifications. To determine the length of the river and valley, the river banks and valley banks were each manually digitized three separate times at a scale of 1:1500. Since my valley borders were outside the extent of the buffer, I expanded my digitization scale to 1:2500 for the valley digitization. Each of these three classifications was done alternating over the preprocessed hillshade and slope classifications, so as to avoid biases from re-replicating our first digitization attempts over and over again. Following the digitization, a composite centerline for the valley and river were constructed from the centerlines of all three digitization attempts. The river centerline was exported to Rstudio as a text files of points containing elevation data for each location at 100m intervals along the river. A transect of the valley was constructed at the location of CHaMP location 13, and was similarly exported to RStudio for post-processing and analysis. With all these calculations supplemented with site-specific details (bankfull depth, particle size, etc.), the Rosgen Classification could be replicated.
+
+The main differences from the original study (Kasprak et al. (2016)) are that this replication uses open-source software and does not have access to the RBT toolkit. The RBT toolkit in ArcGIS allows uses to automatically calculate the slope, bankfull width and depth, sinuosity, and all other features (excluding particle size) found in Table 2. Kasprak ran their RCS classifications on 33 points, whereas our class of 18 students only managed to classify 18 locations. Our DEM data is at a grainer resolution (1m as compared to 0.1m), though both of these resolutions are incredible and fairly accurate for the method of classification. Nevertheless, there are some hash-line artifacts in the elevation data, perhaps from automated processing within the USGS.
+
+To determine if our replication was successful, we will compare our Rosgen river classifications to those provided in the CHaMP dataset to determine the similarity of our results.
+
 
 ## Replication Results
 
@@ -113,16 +88,30 @@ For each hypothesis examined, present separately the results of the replication 
 3.	State whether any hypothesis linked to a planned deviation from the original study was supported. Provide key statistics and related reasoning.
 
 Figures to Include:
+
+
+![Figure 2: ]()
+
+![Figure 3: ]()
+
+![Figure 4: ]()
+
+![Figure 5: ]()
+
+![Figure 6: ]()
+
+
 - map of the study site shaded elevation
 - map of the study site slope
 - Map of the study site stream/river centerlines and final mean centerline
 - Map of the study site valley centerlines and final mean centerline
 - Longitudinal profile graph with elevation and slope
 - Cross-sectional profile graph
+- annotated flow chart of RCS
 
 Tables to Include:
 
-Table 1. Site Measurements
+Table 2. Site Measurements
 | Variable | Value | Source |
 | :-: | :-: | :-: |
 | Bankfull Width (m) | 8.0755 |  [CHaMP_Data_MFJD](https://github.com/jafreedman12/RE-rosgen/tree/main/data/raw/public)|
@@ -130,24 +119,24 @@ Table 1. Site Measurements
 | Bankfull Depth Maximum (m) | 1.7449 | [DpthBf_Max in CHaMP_Data_MFJD](https://github.com/jafreedman12/RE-rosgen/tree/main/data/raw/public) |
 | Valley Width (m) | 325 | *last graph in rstudio code |
 | Valley Depth (m) | 3.4998 | *calculation of MaxBFx2|
-| Stream/River Length (m) | 306.66 | *calculation in grass |
+| Stream/River Length (m) | 306.66 | *calculation in GRASS |
 | Valley Length (m) | 230.17 | *calculation in grass |
 | Median Channel Material Particle Diameter (mm) | 70 | [SubD50 variable in CHaMP_Data_MFJD](https://github.com/jafreedman12/RE-rosgen/tree/main/data/raw/public) |
 
-Table 2. Rosgen Level I Classification
-| Criteria | Value |
-| :-: | :-: |
-| Entrenchment Ratio | -- |
-| Width / Depth Ratio | -- |
-| Sinuosity | -- |
-| Level I Stream Type | -- |
+Table 3. Rosgen Level I Classification
+| Criteria | Value | equation |
+| :-: | :-: | :-: |
+| Entrenchment Ratio | 325/8.0755= 40.23497 |  
+| Width / Depth Ratio | 8.0755/0.4031=20.03349 |  bankfull width/bankfull average depth |
+| Sinuosity | 306.66/230.17=1.33232 | channel length/valley length |
+| Level I Stream Type | C |
 
-Table 3. Rosgen Level II Classification
+Table 4. Rosgen Level II Classification
 | Criteria | Value |
 | :-: | :-: |
-| Slope | -- |
-| Channel Material | -- |
-| Level II Stream Type | -- |
+| Slope | 0.0074 (0.74%) |
+| Channel Material | Gravel |
+| Level II Stream Type | C4 |
 
 
 ## Unplanned Deviations from the Protocol
