@@ -20,6 +20,7 @@ Replication Materials Available at: [Re-Rosgen](https://github.com/jafreedman12/
 Created: `19 March 2021`
 Revised: `19 March 2021`
 
+Land Acknowledgement: This analysis takes place on the traditional lands of the Cayuse, Umatilla and Walla Walla and the Confederated Tribes of Warm Springs.
 
 ## Abstract
 
@@ -70,7 +71,14 @@ This report is to assess if the watershed-scale classifications by Kasprak et al
 
 Both Kasprak et al. (2016) and our replication follow the Rosgen Classification System template for classifying the river to Level I and Level II specifications. While Kasprak used the [River Bathymetry Toolkit (RBT)](https://essa.com/explore-essa/tools/river-bathymetry-toolkit-rbt/), a set of river analysis tools designed to function with ArcGIS desktop, we did many of these same steps with manual digitization and terrain analysis in GRASS.
 
-For our replication, we began with a workspace in GRASS for doing our terrain processing. Working in the projection NAD 1983 UTM Zone 11 North, we loaded in the 1m LiDAR-derived DEM of the watershed and all relevant points from the CHaMP dataset. To create our study region, we built a buffer around our selected point of interest (e.g. location 13 (Fig. 1)), created a square analysis region around the buffer, and clipped the LiDAR-derived DEM to that analysis region. A hillshade and slope were applied to the elevation data, to be used in subsequent classifications. To determine the length of the river and valley, the river banks and valley banks were each manually digitized three separate times at a scale of 1:1500. Since my valley borders were outside the extent of the buffer, I expanded my digitization scale to 1:2500 for the valley digitization. Each of these three classifications was done alternating over the preprocessed hillshade and slope classifications, so as to avoid biases from re-replicating our first digitization attempts over and over again. Following the digitization, a composite centerline for the valley and river were constructed from the centerlines of all three digitization attempts. The river centerline was exported to Rstudio as a text files of points containing elevation data for each location at 100m intervals along the river. A transect of the valley was constructed at the location of CHaMP location 13, and was similarly exported to RStudio for post-processing and analysis. With all these calculations supplemented with site-specific details (bankfull depth, particle size, etc.), the Rosgen Classification could be replicated.
+For our replication, we began with a workspace in GRASS for doing our terrain processing. Working in the projection NAD 1983 UTM Zone 11 North, we loaded in the 1m LiDAR-derived DEM of the watershed and all relevant points from the CHaMP dataset. To create our study region, we built a buffer of 20 channel widths around our selected point of interest (e.g. location 13 (Fig. 1)), created a square analysis region around the buffer, and clipped the LiDAR-derived DEM to that analysis region. A hillshade and slope were applied to the elevation data, to be used in subsequent classifications. To determine the length of the river and valley, the river banks and valley banks were each manually digitized three separate times at a scale of 1:1500. Since my valley borders were outside the extent of the buffer, I expanded my digitization scale to 1:2500 for the valley digitization. Each of these three classifications was done alternating over the preprocessed hillshade and slope classifications, so as to avoid biases from re-replicating our first digitization attempts over and over again. Following the digitization, a composite centerline for the valley and river were constructed from the centerlines of all three digitization attempts. The river centerline was exported to Rstudio as a text files of points containing elevation data for each location at 100m intervals along the river. A transect of the valley was constructed at the location of CHaMP location 13, and was similarly exported to RStudio for post-processing and analysis. With all these calculations supplemented with site-specific details (bankfull depth, particle size, etc.), the Rosgen Classification could be replicated.
+
+For replication in another raster-processing program, complete the following steps:
+1. Create hillshade and slope
+2. Digitize river banks and valley edges over multiple (3) digitizations
+3. Find the average (middle line) of each of these digitizations
+4. Construct a longitudinal profile of the river
+5. Construct a cross-sectional profile of the river at the location of analysis/interest.
 
 The main differences from the original study (Kasprak et al. (2016)) are that this replication uses open-source software and does not have access to the RBT toolkit. The RBT toolkit in ArcGIS allows uses to automatically calculate the slope, bankfull width and depth, sinuosity, and all other features (excluding particle size) found in Table 2. Kasprak ran their RCS classifications on 33 points, whereas our class of 18 students only managed to classify 18 locations. Our DEM data is at a grainer resolution (1m as compared to 0.1m), though both of these resolutions are incredible and fairly accurate for the method of classification. Nevertheless, there are some hash-line artifacts in the elevation data, perhaps from automated processing within the USGS.
 
@@ -79,29 +87,31 @@ To determine if our replication was successful, we will compare our Rosgen river
 
 ## Replication Results
 
-For each hypothesis examined, present separately the results of the replication attempt.
-1.	Briefly describe how the replication protocol outlined above was implemented reporting key information (e.g., sample size).
-2.	State whether the original hypothesis was or was not supported by the replication
-   - Provide key statistics produced by the replication.
-   - Provide key measures (e.g., matching effect direction/size, significance) used to make the decision.
-   - Highlight any contradictory results with a brief explanation
-3.	State whether any hypothesis linked to a planned deviation from the original study was supported. Provide key statistics and related reasoning.
+This replication was undertaken at one location in the CHaMP dataset. For the level I classification, bankfull width, depth, and average particle size were derived from the CHaMP dataset, stream and valley length were calculated within the same buffer region in GRASS, valley width was calculated in RStudio, and valley depth was derived from bankfull depth from CHaMP data (Table 2). Entrenchment, width:depth, and sinuosity were derived from these calculations, allowing us to determine that the Level I classification was C, a river with a low-sloping, relatively developed floodplain (Table 3; EPA 2005). By deriving the river slope from the change in height divided by the change in length throughout the sample buffer region, slope could be calculated for the level II classification (Table 4). Combined with a chart from our [protocol handbook](https://github.com/jafreedman12/RE-rosgen/blob/main/procedure/protocols/3-Classifying.pdf), we determined the channel material class based on the average particle size from Table 2, helping us classify this river as a C4 river (Figure 8; Table 4).
 
+This result does not match the classification for this point from the classification done by Kasprak et al. (2016), which found this specific point in 2013 to be a B3c river ([VisitID 1903 at loc_id 13] (https://github.com/jafreedman12/RE-rosgen/tree/main/data/raw/public)). Nevertheless, the other three classifications for this point in the river, from 2013, 2014, and 2015, found that the RCS was either C3b (2013) or C4b (2014 & 2015). The presence C4b aligns with the findings from Kasprak et al. (2016), where 24% of all findings were in this category. Similarly, 50% of findings were in the B stream classification, which reflects Kasprak's findings for this site in 2013. Despite all of these differences at different years, Table 5 in Kasprak et al. (2016) states that this site (defined as CBW05583-449266) is a C4b river in the Rosgen Classification System.
 
 ## Figures and Tables
 
+Figure 2: Slope at location 13
 ![Figure 2: Slope at location 13](https://github.com/jafreedman12/RE-rosgen/blob/main/results/maps/fig2_slope_loc13.png)
 
+Figure 3: Shaded elevation at location 13
 ![Figure 3: Shaded elevation at location 13](https://github.com/jafreedman12/RE-rosgen/blob/main/results/maps/fig3_shadedElev_loc13.png)
 
+Figure 4: Composite stream centerline
 ![Figure 4: Composite stream centerline](https://github.com/jafreedman12/RE-rosgen/blob/main/results/maps/fig4_stream_centerline_loc13.png)
 
+Figure 5: Composite valley centerline
 ![Figure 5: Composite valley centerline](https://github.com/jafreedman12/RE-rosgen/blob/main/results/maps/fig5_valley_centerline.png)
 
+Figure 6: Longitudinal profile of river
 ![Figure 6: Longitudinal profile of river](https://github.com/jafreedman12/RE-rosgen/blob/main/results/maps/fig6_longprof_graph_elev_slope.png)
 
+Figure 7: Cross-sectional river profile
 ![Figure 7: Cross-sectional river profile](https://github.com/jafreedman12/RE-rosgen/blob/main/results/maps/fig7_cross_sect_profile_graph.png)
 
+Figure 8: Annotated flow chart of Rosgen Classification System
 ![Figure 8: Annotated flow chart of Rosgen Classification System](https://github.com/jafreedman12/RE-rosgen/blob/main/results/figures/Key_to_Rosgen_Classification.jpeg)
 
 
@@ -111,10 +121,10 @@ Table 2. Site Measurements
 | Bankfull Width (m) | 8.0755 |  [CHaMP_Data_MFJD](https://github.com/jafreedman12/RE-rosgen/tree/main/data/raw/public)|
 | Bankfull Depth Average (m) | 0.4031 | [DpthBf_Avg in  CHaMP_Data_MFJD](https://github.com/jafreedman12/RE-rosgen/tree/main/data/raw/public) |
 | Bankfull Depth Maximum (m) | 1.7449 | [DpthBf_Max in CHaMP_Data_MFJD](https://github.com/jafreedman12/RE-rosgen/tree/main/data/raw/public) |
-| Valley Width (m) | 325 | *last graph in rstudio code |
-| Valley Depth (m) | 3.4998 | *calculation of MaxBFx2|
-| Stream/River Length (m) | 306.66 | *calculation in GRASS |
-| Valley Length (m) | 230.17 | *calculation in grass |
+| Valley Width (m) | 325 | Figure 7: Cross-sectional river profile |
+| Valley Depth (m) | 3.4998 | Bankfull Depth Maximum x2|
+| Stream/River Length (m) | 306.66 | calculation in buffer GRASS |
+| Valley Length (m) | 230.17 | calculation in buffer region in GRASS |
 | Median Channel Material Particle Diameter (mm) | 70 | [SubD50 variable in CHaMP_Data_MFJD](https://github.com/jafreedman12/RE-rosgen/tree/main/data/raw/public) |
 
 Table 3. Rosgen Level I Classification
@@ -135,13 +145,16 @@ Table 4. Rosgen Level II Classification
 
 ## Unplanned Deviations from the Protocol
 
-Identify and describe any unplanned deviations from the original replication protocol the occurred during the course of the replication. Explain the rationale behind any deviations. Finally, provide the details and results of any sensitivity analyses conducted to assess whether these deviations may have impacted the results of the replication.
+The primary deviation from the protocol was needing to expand the scale of digitization for the valley, as the valley lines were beyond the scope of the buffer. While we were provided a later tool to not clip the valley boundaries to the extent of the buffer (if the valley length did not bisect the buffer), my lenght was generally near the center of the buffer and worked for calculating the sinuosity of the river (Table 3).
+
+***Sensitivity analyses?***
 
 ## Discussion
 
-Provide a summary and interpretation of the key findings of the replication *vis-a-vis* the original study results. If the attempt was a failure, discuss possible causes of the failure. These may include:
-- Practical Causes – related to lack of data, code, details in the original analysis
-- Informative Causes – related to absence of effect, change in population, or location.
+It remains unclear if this assessment is an accurate replication of the findings by Kasprak et al. (2016). On one hand, the exact classification (B3c) for this point does not align with our classification of C4, yet the overall classification for all samples at this location (C4b) is far closer to our findings. It unclear which of the points from 2013 Kasprak used, especially since neither yields a C4b classification on their own. It is very possible that Kasprak used a different sample from 2012 or 2013 that classified this river as a C4b, but the results from the paper and the corresponding data in the CHaMP dataset fail to further illuminate on the subject.
+
+Similarly, there could be errors in the calculation of certain variables, namely channel length, valley length, and slope. Since each of these variables was calculated in a contained buffer region, it is possible that the length and extent for valley/river length and height are different than in the Kasprak analyses. This could be especially pertinent towards why we classified our river as C4 and not C4b (Figure 8).
+
 
 Discuss an interpretation of your results.
 - Were the Level I and Level II results internally and logically consistent? That is, did all the parameters for the identified stream type conform to expectations outlined in Rosgen?
@@ -156,7 +169,12 @@ Do the research findings suggest a need for any future research?
 
 ## References
 
-Include any referenced studies or materials in the [AAG Style of author-date referencing](https://www.tandf.co.uk//journals/authors/style/reference/tf_USChicagoB.pdf).
+- Hilgendorf, Z. & Holler, J. 2021. Primer for Rosgen Stream Classification course module. Arizona State University & Middlebury College.
+- Kasprak, A., N. Hough-Snee, T. Beechie, N. Bouwes, G. Brierley, R. Camp, K. Fryirs, H. Imaki, M. Jensen, G. O’Brien, D. Rosgen, and J. Wheaton. 2016. The blurred line between form and process: A comparison of stream channel classification frameworks ed. J. A. Jones. PLOS ONE 11 (3):e0150293. https://dx.plos.org/10.1371/journal.pone.0150293.
+- Rosgen, D. L. 1994. A classification of natural rivers. CATENA 22 (3):169–199. https://linkinghub.elsevier.com/retrieve/pii/0341816294900019.
+
+Thank you to the entire GEOG0323 - Open Source GIS for their collaborative spirit and willingness to help troubleshoot questions throughout the assignment. Their support is what helps this work continue.
+
 
 ####  Report Template References & License
 
